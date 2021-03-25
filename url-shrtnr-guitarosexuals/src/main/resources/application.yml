@@ -1,0 +1,23 @@
+micronaut:
+  application:
+    name: test-course-template
+  server:
+    cors:
+      enabled: true
+  security:
+    enabled: true
+    endpoints:
+      login:
+        enabled: true
+        path: /login
+    authentication: bearer
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: supaDupaSecretThatNobodyWillKnow
+              jws-algorithm: HS256
+        generator:
+          access-token:
+            expiration: 86400
